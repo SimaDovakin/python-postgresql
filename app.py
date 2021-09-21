@@ -1,17 +1,17 @@
-import csv
+import time
+
+import psycopg2
 
 
-hosts = set()
-rooms_num = 0
+time.sleep(10)
 
-with open('datasets/listings.csv', 'r') as table:
-    reader = csv.reader(table)
+connection_string = "host=db user=postgres dbname=postgres"
+conn = psycopg2.connect(connection_string)
 
-    heading = next(reader)
+cur = conn.cursor()
 
-    for row in reader:
-        hosts.add(row[2])
-        rooms_num += 1
+cur.execute("SELECT version()")
 
-print(len(hosts), rooms_num)
+db_version = cur.fetchone()
+print(db_version)
 
