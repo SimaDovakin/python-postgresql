@@ -3,5 +3,5 @@ __pycache__/
 *$py.class
 
 venv/
-datasets/
+datasets/*
 
