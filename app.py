@@ -15,3 +15,6 @@ cur.execute("SELECT version()")
 db_version = cur.fetchone()
 print("Database version is", db_version)
 
+word = input()
+print(word)
+
