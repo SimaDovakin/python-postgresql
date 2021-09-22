@@ -4,6 +4,7 @@ __pycache__/
 
 venv/
 datasets/*
+database/*
 
 # vim
 **/*.swp
