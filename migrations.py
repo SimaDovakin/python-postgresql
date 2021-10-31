@@ -26,8 +26,8 @@ create_rooms_table_query = """
         price INTEGER,
         minimum_nights SMALLINT,
         number_of_reviews INTEGER,
-        last_review DATE,
-        reviews_per_month NUMERIC(8, 4),
+        last_review DATE NULL,
+        reviews_per_month NUMERIC(8, 4) NULL,
         calculated_host_listings_count SMALLINT,
         availability_365 SMALLINT,
         CONSTRAINT fk_host
@@ -46,8 +46,9 @@ create_reviewers_table_query = """
 
 create_reviews_table_query = """
     CREATE TABLE IF NOT EXISTS reviews (
-        id INTEGER PRIMARY KEY,
         listing_id INTEGER,
+        id INTEGER PRIMARY KEY,
+        date DATE NULL,
         reviewer_id INTEGER,
         comment TEXT,
         CONSTRAINT fk_listing
